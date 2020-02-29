@@ -17,8 +17,6 @@ corretamente.*/
 
     }
      return alunosDaEscola.push(aluno)   
-
-
 }
      
        
@@ -38,6 +36,11 @@ corretamente.*/
     console.log("----------Proximo-------------")
     }
     }
+    adicionarAluno("diego",[10,9,4,3], "fullStack", 0)
+    adicionarAluno("diego",[10,9,4,3], "fullStack", 0)
+    adicionarAluno("diego",[10,9,4,3], "fullStack", 0)
+    adicionarAluno("diego",[10,9,4,3], "fullStack", 0)
+
 
     function buscarAluno(nome) {
         /* Por meio dessa função, podemos pesquisar um aluno
@@ -45,9 +48,20 @@ corretamente.*/
          feedback, tanto para quando encontrar o aluno, tanto 
          quando não encontrar. E deverá devolver um aluno em 
          seu retorno. */
+                             
+                      let resultadoBusca =   alunosDaEscola.filter( (valor)=> valor.nome == nome);
+                    
+                    if( resultadoBusca.length >= 1) {
+                        console.log("aluno consta na lista ")
+                    }else {
+                        console.log("nao consta")
+                    }
+                    console.log(resultadoBusca)
+                            
+                }
 
 
-      }
+      
 
 
 
@@ -58,5 +72,6 @@ corretamente.*/
 
 
 
-      adicionarAluno("diego",[10,9,4,3], "fullStack", 0)
+    //   adicionarAluno("diego",[10,9,4,3], "fullStack", 0)
      listarAlunos(alunosDaEscola)
+     buscarAluno("diego")
