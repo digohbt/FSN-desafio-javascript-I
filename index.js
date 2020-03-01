@@ -26,37 +26,51 @@ function listarAlunos(array) {
 }
 
 function buscarAluno(nome) {
-    
-   let resultadoBusca = alunosDaEscola.filter((valor) => {  return valor.nome == nome })
-   
 
-    if (resultadoBusca.length >= 0) {
+    let resultadoBusca = alunosDaEscola.filter((valor) => { return valor.nome == nome })
+    if (resultadoBusca.length > 0) {
         console.log("aluno consta na lista ")
-    }else {
+    } else {
         console.log("nao consta")
-    } 
-    console.log(resultadoBusca[0])
-    return resultadoBusca 
+    }
+    //  console.log(resultadoBusca[0])
+    return resultadoBusca
 }
 
-function matricularAluno(aluno, curso){
-    /* Essa funcionalidade irá permitir, cadastrar um aluno em um curso. 
-    Essa função só poderá ser executada em um aluno já devidamente cadastrado no 
-    sistema, e deverá armazenar a data atual no momento da matricula
-    Lembre-se de exibir o feedback para o usuário. */
-     let alunoCadastrado =  buscarAluno(aluno)
-    //  let matricularAluno =  buscarAluno(aluno)
-    //     if( matricularAluno == aluno){
-    //         console.log("deu certo ")
-    //     }else {
-            console.log("deu errado "+ alunoCadastrado)
-    //     }
+function matricularAluno(aluno, curso) {
+
+    let alunoCadastrado = buscarAluno(aluno)
+    // console.log(alunoCadastrado)
+
+    if (alunoCadastrado.length > 0) {
+        alunoCadastrado[0].cursos = curso
+    console.log( `Curso Adicionado : 
+                  nome: ${alunoCadastrado[0].nome}
+                  Curso: ${alunoCadastrado[0].cursos}
+                  faltas: ${alunoCadastrado[0].falta }
+                  notas: ${alunoCadastrado[0].notas}`)
+                  
+            // tentativa para saber o indice para fazer slice no array alunosDaEscola
+        let indice = alunosDaEscola.indexOf(function () {
+            for (let prop of alunosDaEscola) {
+                if (prop[prop].nome === aluno) {
+                    return false;
+                } else {
+                    return false
+                }
+            }
+        })
+ // console.log(indice)
+      } else {
+        console.log("O aluno nao esta matriculado na Escola ")
+    } }
+
+
+
+
     
-
-
-  }
-//    matricularAluno("Edson")
+matricularAluno("Edson", "DS")
 
 //   adicionarAluno("diego",[10,9,4,3], "fullStack", 0)
 //     listarAlunos(alunosDaEscola)
-  buscarAluno("ddddd")
+//  buscarAluno("Henriq")
