@@ -44,9 +44,12 @@ function matricularAluno(aluno, curso) {
 
     if (alunoCadastrado.length > 0) {
         alunoCadastrado[0].cursos = curso
+        alunoCadastrado[0].dataMatricula = new  Date()
     console.log( `Curso Adicionado : 
+
                   nome: ${alunoCadastrado[0].nome}
                   Curso: ${alunoCadastrado[0].cursos}
+                  Data: ${alunoCadastrado[0].dataMatricula}
                   faltas: ${alunoCadastrado[0].falta }
                   notas: ${alunoCadastrado[0].notas}`)
                   
@@ -67,9 +70,29 @@ function matricularAluno(aluno, curso) {
 
 
 
-
+    function aplicarNota(aluno , falta){
+      let alunoCadastrado = buscarAluno(aluno)
     
-matricularAluno("Edson", "DS")
+    if (alunoCadastrado.length > 0) {
+        
+        alunoCadastrado[0].faltas  = (alunoCadastrado[0].faltas + falta)
+    console.log( `Faltas Adicionado : 
+                  nome: ${alunoCadastrado[0].nome}
+                  Curso: ${alunoCadastrado[0].cursos}
+                  Data: ${alunoCadastrado[0].dataMatricula}
+                  faltas: ${alunoCadastrado[0].faltas }
+                  notas: ${alunoCadastrado[0].notas}`) 
+      } else {
+        console.log("O aluno nao esta matriculado na Escola ")
+    } }
+
+
+
+
+
+
+ matricularAluno("Edson", "DS")
+aplicarNota("Edson" , 8)
 
 //   adicionarAluno("diego",[10,9,4,3], "fullStack", 0)
 //     listarAlunos(alunosDaEscola)
