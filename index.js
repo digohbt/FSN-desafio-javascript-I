@@ -87,13 +87,30 @@ function matricularAluno(aluno, curso) {
     } }
 
 
+    function aprovarAluno(aluno) {
+      let alunoCadastrado = buscarAluno(aluno)
+      let resultado
+      if (alunoCadastrado.length > 0) {
+            for(let i = 1; i < 4; i++){
+                resultado = resultado + alunoCadastrado.notas
+
+            }
+        //    resultado = alunoCadastrado.reduce( (acumulador, elem  ) => {
+        //         return acumulador + elem.notas[acumulador+3] ;
+        //   }, 0 )
+        console.log("----"+resultado)
+      }else {
+          console.log("---Aluno não Cadastrado")
+     
+        }
+    }
 
 
 
-
- matricularAluno("Edson", "DS")
-aplicarNota("Edson" , 8)
+aprovarAluno("Bruno")
+//  matricularAluno("Edson", "DS")
+// aplicarNota("Edson" , 8)
 
 //   adicionarAluno("diego",[10,9,4,3], "fullStack", 0)
 //     listarAlunos(alunosDaEscola)
-//  buscarAluno("Henriq")
+//  buscarAluno("Henriq"
